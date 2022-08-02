@@ -1,0 +1,114 @@
+package com.nasar;
+import java.util.*;
+
+interface phone1{
+  void ring();
+  void call();
+}
+interface smartPhone extends phone1 {
+      void music();
+      void video();
+      void browser();
+}p
+abstract class camera {
+    
+    abstract void snap ();
+    abstract void record();
+}
+interface whatsapp{
+  void chat();
+  void videocall();
+}
+class PocoX3 extends camera implements smartPhone,whatsapp{
+        
+              Scanner sc=new Scanner (System.in);
+              
+              public void ring (){
+                System.out.println("ringing...");
+              }
+              public void call(){
+                  System.out.println("Enter the contact name to call");
+                  String name=sc.next();
+                  System.out.println("Calling "+name+"...");
+                  ring();
+                }
+              public void music() {
+                System.out.println("Enter the song  name to play");    
+                String name=sc.next();
+                System.out.println("Playing "+name+" song...");
+              }
+              public void video(){
+                System.out.println("Enter the video song  name to play");    
+                String name=sc.next();
+                System.out.println("Playing video song "+name+" ...");
+              }
+              public void browser() {
+                System.out.println("enter what do you want to search");
+                String name =sc.next();
+                System.out.println("Searching "+name+"...");
+                System.out.println("Please dont press back button ");
+              }
+              public void snap() {
+                System.out.println("Clicking photo ..");
+              }
+              public void record() {
+                System.out.println("recording 4k video ..");
+              }
+              public void chat(){
+                System.out.println("Enter the name for chatting ");
+                String name =sc.next();
+                System.out.println("Chatting with "+name+"....");
+              }
+              public void videocall(){
+                System.out.println("Enter the name for video call ");
+                String name =sc.next();
+                System.out.println("video call with "+name+"....");
+              }
+}  
+public class interface2 {
+  public static void main(String[] args) {
+      
+      PocoX3 p=new PocoX3();
+      try (Scanner sc = new Scanner (System.in)) {
+        int k=1;
+        do{
+          System.out.println("Choose the feature yo want to use \n1.call.\n2.SmarPhoneFeatures\n3.camera\n4.whatsapp");
+          int c=sc.nextInt();
+          switch (c){
+            case 1->{
+              p.call();
+            }
+            case 2->{
+              System.out.println(" choose the feature you want :\n1.music \n2.video \n3.browser");
+              int a=sc.nextInt();
+              switch(a){
+                case 1-> p.music();
+                case 2-> p.video();
+                case 3 ->p.browser();
+              }
+            }
+            case 3 ->{
+              System.out.println("Chose the feature you want :\n1.snap\n2.record");
+              int a=sc.nextInt();
+              switch (a){
+                case 1-> p.snap();
+                case 2->p.video();
+              }
+            }
+            case 4->{
+              System.out.println("Chose the feature you want :\n1.chat\n2.videocall");
+              int a=sc.nextInt();
+              switch (a) {
+                case 1->p.chat();
+                case 2->p.videocall();
+            }
+            
+          }
+          
+        }
+        System.out.println("Enter zero to exit or One to continue:");
+          k=sc.nextInt();
+ }while (k!=0);
+      }
+}
+}
