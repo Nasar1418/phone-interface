@@ -9,7 +9,7 @@ interface smartPhone extends phone1 {
       void music();
       void video();
       void browser();
-}p
+}
 abstract class camera {
     
     abstract void snap ();
